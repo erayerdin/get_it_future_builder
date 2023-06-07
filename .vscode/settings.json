@@ -12,6 +12,7 @@
         "**/linux": true,
         "**/*.iml": true,
         "**/.metadata": true,
+        "**/build": true,
     },
     "explorerExclude.backup": {},
     "licenser.license": "AL2",
