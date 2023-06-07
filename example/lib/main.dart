@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 8),
-              GetItFutureBuilder(
+              GetItFutureBuilder<Directory>(
                 dependency: GetItDependency(
                   type: Directory,
                   instanceName: 'documents_dir', // this is optional
