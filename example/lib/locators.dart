@@ -23,5 +23,6 @@ void initLocator() {
       await Future.delayed(const Duration(seconds: 5)); // a fake wait
       return await getApplicationDocumentsDirectory();
     },
+    instanceName: 'documents_dir',
   );
 }
