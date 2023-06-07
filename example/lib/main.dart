@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -42,7 +44,15 @@ class HomePage extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 8),
-              const LinearProgressIndicator(),
+              GetItFutureBuilder(
+                dependency: GetItDependency(
+                  type: Directory,
+                  instanceName: 'documents_dir', // this is optional
+                ),
+                loading: (context) => const LinearProgressIndicator(),
+                ready: (context, instance) =>
+                    Text('Documents directory: ${instance.path}'),
+              ),
             ],
           ),
         ],
