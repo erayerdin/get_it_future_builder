@@ -13,6 +13,8 @@
         "**/*.iml": true,
         "**/.metadata": true,
         "**/build": true,
+        "**/.flutter-plugins": true,
+        "**/.flutter-plugins-dependencies": true,
     },
     "explorerExclude.backup": {},
     "licenser.license": "AL2",
