@@ -32,8 +32,20 @@ class HomePage extends StatelessWidget {
         elevation: 4,
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text('example app'),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Column(
+            children: [
+              Text(
+                'Application Documents Directory',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 8),
+              const LinearProgressIndicator(),
+            ],
+          ),
+        ],
       ),
     );
   }
