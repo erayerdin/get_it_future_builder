@@ -18,13 +18,14 @@
 class GetItDependency {
   /// {@macro get_it_dependency}
   GetItDependency({
-    required Type type,
-    String? instanceName,
-  }) {
-    _type = type;
-    _instanceName = instanceName;
-  }
+    required this.type,
+    this.instanceName,
+  });
 
-  late Type _type;
-  late String? _instanceName;
+  /// The type of dependency.
+  final Type type;
+
+  /// The name of dependency defined in `instanceName` when you register it
+  /// to `get_it`.
+  final String? instanceName;
 }
