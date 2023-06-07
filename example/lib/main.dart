@@ -26,8 +26,13 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Get It Future Builder Example'),
+        elevation: 4,
+        centerTitle: true,
+      ),
+      body: const Center(
         child: Text('example app'),
       ),
     );
