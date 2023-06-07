@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:get_it_future_builder/get_it_future_builder.dart';
 
 void main() {
   runApp(const MyApp());
