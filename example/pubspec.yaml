@@ -13,6 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: ^7.6.0
   path_provider: ^2.0.15
+  get_it_future_builder:
+    path: '..'
 
 dev_dependencies:
   flutter_test:
