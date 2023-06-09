@@ -40,6 +40,9 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          //---------------------------//
+          // Example for path_provider //
+          //---------------------------//
           Column(
             children: [
               Text(
