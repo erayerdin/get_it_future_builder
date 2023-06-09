@@ -87,7 +87,7 @@ To initialize them asynchronously, use `GetItFutureBuilder2` as below:
 ```dart
 GetItFutureBuilder2<Directory, Directory>(
   instanceName1: 'documents_dir', // optional
-  instanceName2: 'tmep_dir', // optional
+  instanceName2: 'temp_dir', // optional
   loading: (context) => const LinearProgressIndicator(),
   ready: (context, instance1, instance2) => Text(
     'Documents dir is ${instance1.path} and temp dir is ${instance2.path}',
