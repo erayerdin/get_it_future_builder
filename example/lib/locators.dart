@@ -25,4 +25,20 @@ void initLocator() {
     },
     instanceName: 'documents_dir',
   );
+
+  GetIt.I.registerSingletonAsync<Directory>(
+    () async {
+      await Future.delayed(const Duration(seconds: 4));
+      return await getApplicationSupportDirectory();
+    },
+    instanceName: 'support_dir',
+  );
+
+  GetIt.I.registerSingletonAsync<Directory>(
+    () async {
+      await Future.delayed(const Duration(seconds: 6));
+      return await getTemporaryDirectory();
+    },
+    instanceName: 'temp_dir',
+  );
 }

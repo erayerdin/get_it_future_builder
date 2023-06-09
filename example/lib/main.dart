@@ -40,9 +40,9 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          //---------------------------//
-          // Example for path_provider //
-          //---------------------------//
+          //-----------------------------------//
+          // Example for single future builder //
+          //-----------------------------------//
           Column(
             children: [
               Text(
@@ -55,6 +55,26 @@ class HomePage extends StatelessWidget {
                 loading: (context) => const LinearProgressIndicator(),
                 ready: (context, instance) =>
                     Text('Documents directory: ${instance.path}'),
+              ),
+            ],
+          ),
+          //------------------------------//
+          // Example for future builder 2 //
+          //------------------------------//
+          Column(
+            children: [
+              Text(
+                'Other Directories',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 8),
+              GetItFutureBuilder2<Directory, Directory>(
+                instanceName1: 'temp_dir', // optional
+                instanceName2: 'support_dir', // optional
+                loading: (context) => const LinearProgressIndicator(),
+                ready: (context, instance1, instance2) => Text(
+                  'Temporary dir is ${instance1.path} and support dir is ${instance2.path}',
+                ),
               ),
             ],
           ),
