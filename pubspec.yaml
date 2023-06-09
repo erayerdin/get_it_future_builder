@@ -1,5 +1,5 @@
 name: get_it_future_builder
-description: A Very Good Project created by Very Good CLI.
+description: Wait for your async `get_it` dependencies to be ready in the presentation layer.
 version: 0.1.0+1
 publish_to: none
 
