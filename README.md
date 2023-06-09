@@ -1,10 +1,11 @@
 # Get It Future Builder
 
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
-[![Powered by Mason](https://img.shields.io/endpoint?url=https%3A%2F%2Ftinyurl.com%2Fmason-badge)](https://github.com/felangel/mason)
 [![License: MIT][license_badge]][license_link]
 
 `get_it_future_builder` provides a widget named `GetItFutureBuilder` to wait for your async dependencies to be ready on your presentation layer.
+
+This project is in its infancy stage, where any suggestions and PRs are welcome.
 
 ## Installation 💻
 
@@ -23,39 +24,36 @@ Install it:
 flutter packages get
 ```
 
+## How to Use It
+
+Register your async dependency through `GetIt` as such:
+
+```dart
+GetIt.I.registerSingletonAsync<Directory>(
+  () async {
+    return await getApplicationDocumentsDirectory();
+  },
+  instanceName: 'documents_dir', // optional
+);
+```
+
+In our example, we'll use [getApplicationDocumentsDirectory](https://pub.dev/documentation/path_provider/latest/path_provider/getApplicationDocumentsDirectory.html) method of [path_provider](https://pub.dev/packages/path_provider). Since it calls native code through `MethodChannel`, it has to be asynchronous.
+
+Then, in the presentation layer, you can simply do:
+
+```dart
+// notice how we get the dependency with generics
+GetItFutureBuilder<Directory>(
+  // optional
+  instanceName: 'documentsDir',
+  // render this widget while loading
+  loading: (context) => LinearProgressIndicator(),
+  // render this widget when it's ready
+  ready: (context, instance) => Text('documents dir is: ${instance.path}'),
+)
+```
+
 ---
-
-## Continuous Integration 🤖
-
-Get It Future Builder comes with a built-in [GitHub Actions workflow][github_actions_link] powered by [Very Good Workflows][very_good_workflows_link] but you can also add your preferred CI/CD solution.
-
-Out of the box, on each pull request and push, the CI `formats`, `lints`, and `tests` the code. This ensures the code remains consistent and behaves correctly as you add functionality or make changes. The project uses [Very Good Analysis][very_good_analysis_link] for a strict set of analysis options used by our team. Code coverage is enforced using the [Very Good Workflows][very_good_coverage_link].
-
----
-
-## Running Tests 🧪
-
-For first time users, install the [very_good_cli][very_good_cli_link]:
-
-```sh
-dart pub global activate very_good_cli
-```
-
-To run all unit tests:
-
-```sh
-very_good test --coverage
-```
-
-To view the generated coverage report you can use [lcov](https://github.com/linux-test-project/lcov).
-
-```sh
-# Generate Coverage Report
-genhtml coverage/lcov.info -o coverage/
-
-# Open Coverage Report
-open coverage/index.html
-```
 
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
 [github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
