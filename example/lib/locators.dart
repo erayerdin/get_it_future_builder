@@ -18,7 +18,7 @@ import 'package:get_it/get_it.dart';
 import 'package:path_provider/path_provider.dart';
 
 void initLocator() {
-  GetIt.I.registerFactoryAsync<Directory>(
+  GetIt.I.registerSingletonAsync<Directory>(
     () async {
       await Future.delayed(const Duration(seconds: 5)); // a fake wait
       return await getApplicationDocumentsDirectory();
