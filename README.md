@@ -27,6 +27,8 @@ flutter packages get
 
 ## How to Use It
 
+### A Single Dependency
+
 You can also see [example](example/) directory.
 
 Register your async dependency through `GetIt` as such:
@@ -56,7 +58,44 @@ GetItFutureBuilder<Directory>(
 )
 ```
 
----
+### Multiple Dependencies
+
+Currently, `get_it_future_builder` only supports the initialization widget up to 2 dependencies.
+
+To initialize 2 dependencies on your widget tree, use `GetItFutureBuilder2`.
+
+Let's assume we have two asynchronous dependencies.
+
+```dart
+GetIt.I.registerSingletonAsync<Directory>(
+  () async {
+    return await getApplicationDocumentsDirectory();
+  },
+  instanceName: 'documents_dir', // optional
+);
+
+GetIt.I.registerSingletonAsync<Directory>(
+  () async {
+    return await getTemporaryDirectory();
+  },
+  instanceName: 'temp_dir', // optional
+);
+```
+
+To initialize them asynchronously, use `GetItFutureBuilder2` as below:
+
+```dart
+GetItFutureBuilder2<Directory, Directory>(
+  instanceName1: 'documents_dir', // optional
+  instanceName2: 'tmep_dir', // optional
+  loading: (context) => const LinearProgressIndicator(),
+  ready: (context, instance1, instance2) => Text(
+    'Documents dir is ${instance1.path} and temp dir is ${instance2.path}',
+  ),
+),
+```
+
+The initialization of dependencies run concurrently.
 
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
 [github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
