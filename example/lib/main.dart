@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               GetItFutureBuilder<Directory>(
-                // `instanceName` is optional
+                instanceName: 'documents_dir', // optional
                 loading: (context) => const LinearProgressIndicator(),
                 ready: (context, instance) =>
                     Text('Documents directory: ${instance.path}'),
