@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get_it_future_builder/get_it_future_builder.dart';
+import 'package:get_it_future_builder_example/locators.dart';
 
 void main() {
+  initLocator();
   runApp(const MyApp());
 }
 
