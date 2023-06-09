@@ -26,6 +26,8 @@ flutter packages get
 
 ## How to Use It
 
+You can also see [example](example/) directory.
+
 Register your async dependency through `GetIt` as such:
 
 ```dart
