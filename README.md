@@ -60,7 +60,10 @@ GetItFutureBuilder<Directory>(
 
 ### Multiple Dependencies
 
-Currently, `get_it_future_builder` only supports the initialization widget up to 2 dependencies.
+`get_it_future_builder` supports the initialization widget up to 3 dependencies. These widgets are respectively named:
+
+ - `GetItFutureBuilder2`
+ - `GetItFutureBuilder3`
 
 To initialize 2 dependencies on your widget tree, use `GetItFutureBuilder2`.
 
