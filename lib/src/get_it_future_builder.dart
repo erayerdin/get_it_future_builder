@@ -108,3 +108,71 @@ class GetItFutureBuilder2<T1 extends Object, T2 extends Object>
     );
   }
 }
+
+/// {@template get_it_future_builder}
+/// A builder widget for 3 async dependencies registered to `get_it`.
+/// {@endtemplate}
+// ignore: must_be_immutable
+class GetItFutureBuilder3<T1 extends Object, T2 extends Object,
+    T3 extends Object> extends StatelessWidget {
+  /// {@macro get_it_future_builder}
+  GetItFutureBuilder3({
+    required Widget Function(BuildContext context) loading,
+    required Widget Function(
+      BuildContext context,
+      T1 instance1,
+      T2 instance2,
+      T3 instance,
+    ) ready,
+    super.key,
+    String? instanceName1,
+    String? instanceName2,
+    String? instanceName3,
+  }) {
+    _instanceName1 = instanceName1;
+    _instanceName2 = instanceName2;
+    _instanceName3 = instanceName3;
+    _loading = loading;
+    _ready = ready;
+  }
+
+  late String? _instanceName1;
+  late String? _instanceName2;
+  late String? _instanceName3;
+  late Widget Function(BuildContext context) _loading;
+  late Widget Function(
+    BuildContext context,
+    T1 instance1,
+    T2 instance2,
+    T3 instance3,
+  ) _ready;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return _ready(
+            context,
+            snapshot.data![0] as T1,
+            snapshot.data![1] as T2,
+            snapshot.data![2] as T3,
+          );
+        } else {
+          return _loading(context);
+        }
+      },
+      future: () async {
+        final dependencies = await Future.wait(
+          [
+            GetIt.I.getAsync<T1>(instanceName: _instanceName1),
+            GetIt.I.getAsync<T2>(instanceName: _instanceName2),
+            GetIt.I.getAsync<T3>(instanceName: _instanceName3),
+          ],
+        );
+
+        return dependencies;
+      }(),
+    );
+  }
+}
