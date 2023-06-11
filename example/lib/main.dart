@@ -53,8 +53,10 @@ class HomePage extends StatelessWidget {
               GetItFutureBuilder<Directory>(
                 instanceName: 'documents_dir', // optional
                 loading: (context) => const LinearProgressIndicator(),
-                ready: (context, instance) =>
-                    Text('Documents directory: ${instance.path}'),
+                ready: (context, instance) => Text(
+                  'Documents directory: ${instance.path}',
+                  textAlign: TextAlign.center,
+                ),
               ),
             ],
           ),
@@ -64,7 +66,7 @@ class HomePage extends StatelessWidget {
           Column(
             children: [
               Text(
-                'Other Directories',
+                'Two Dependencies',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 8),
@@ -73,7 +75,32 @@ class HomePage extends StatelessWidget {
                 instanceName2: 'support_dir', // optional
                 loading: (context) => const LinearProgressIndicator(),
                 ready: (context, instance1, instance2) => Text(
-                  'Temporary dir is ${instance1.path} and support dir is ${instance2.path}',
+                  'Temporary dir is ${instance1.path} and support dir is '
+                  '${instance2.path}.',
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          ),
+          //------------------------------//
+          // Example for future builder 3 //
+          //------------------------------//
+          Column(
+            children: [
+              Text(
+                'Three Depenencies',
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              const SizedBox(height: 8),
+              GetItFutureBuilder3<Directory, Directory, Directory>(
+                instanceName1: 'temp_dir', // optional
+                instanceName2: 'support_dir', // optional
+                instanceName3: 'documents_dir',
+                loading: (context) => const LinearProgressIndicator(),
+                ready: (context, instance1, instance2, instance3) => Text(
+                  'Temporary dir is ${instance1.path}, support dir is '
+                  '${instance2.path} and documents dir is ${instance3.path}.',
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
