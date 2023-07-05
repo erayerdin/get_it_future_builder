@@ -58,6 +58,11 @@ class GetItFutureBuilder3<T1 extends Object, T2 extends Object,
     return FutureBuilder(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          // ignore: only_throw_errors
+          throw snapshot.error!;
+        }
+
+        if (snapshot.hasData) {
           return _ready(
             context,
             snapshot.data![0] as T1,

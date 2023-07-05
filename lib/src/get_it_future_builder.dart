@@ -41,6 +41,11 @@ class GetItFutureBuilder<T extends Object> extends StatelessWidget {
     return FutureBuilder(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+          // ignore: only_throw_errors
+          throw snapshot.error!;
+        }
+
+        if (snapshot.hasData) {
           return _ready(context, snapshot.data!);
         } else {
           return _loading(context);

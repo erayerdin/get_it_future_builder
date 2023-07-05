@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning].
 ### Changed
 
  - Separated `GetItFutureBuilder`, `GetItFutureBuilder2` and `GetItFutureBuilder3` into different subpackages
+ - Throw error if an error occurs
 
 ## [0.3.1] - 2023-06-11
 
