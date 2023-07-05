@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
+## [Unreleased]
+
+### Changed
+
+ - Separated `GetItFutureBuilder`, `GetItFutureBuilder2` and `GetItFutureBuilder3` into different subpackages
+
 ## [0.3.1] - 2023-06-11
 
  - Fixed a typo in `GetItFutureBuilder3`
