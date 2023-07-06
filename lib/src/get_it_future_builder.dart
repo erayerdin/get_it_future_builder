@@ -40,7 +40,7 @@ class GetItFutureBuilder<T extends Object> extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasError) {
           // ignore: only_throw_errors
           throw snapshot.error!;
         }

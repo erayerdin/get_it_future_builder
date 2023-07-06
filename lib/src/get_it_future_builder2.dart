@@ -45,7 +45,7 @@ class GetItFutureBuilder2<T1 extends Object, T2 extends Object>
   Widget build(BuildContext context) {
     return FutureBuilder(
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasError) {
           // ignore: only_throw_errors
           throw snapshot.error!;
         }
