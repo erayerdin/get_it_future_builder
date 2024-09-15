@@ -25,13 +25,16 @@ class GetItFutureBuilder<T extends Object> extends StatelessWidget {
     required Widget Function(BuildContext context) loading,
     required Widget Function(BuildContext context, T instance) ready,
     super.key,
+    GetIt? locator,
     String? instanceName,
   }) {
+    _locator = locator ?? GetIt.I;
     _instanceName = instanceName;
     _loading = loading;
     _ready = ready;
   }
 
+  late GetIt _locator;
   late String? _instanceName;
   late Widget Function(BuildContext context) _loading;
   late Widget Function(BuildContext context, T instance) _ready;
@@ -53,7 +56,7 @@ class GetItFutureBuilder<T extends Object> extends StatelessWidget {
       },
       future: () async {
         final dependency =
-            await GetIt.I.getAsync<T>(instanceName: _instanceName);
+            await _locator.getAsync<T>(instanceName: _instanceName);
         return dependency;
       }(),
     );
