@@ -6,8 +6,6 @@
 
 `get_it_future_builder` provides a widget named `GetItFutureBuilder` to wait for your async dependencies to be ready on your presentation layer.
 
-This project is in its infancy stage, where any suggestions and PRs are welcome.
-
 ## Installation 💻
 
 **❗ In order to start using Get It Future Builder you must have the [Flutter SDK][flutter_install_link] installed on your machine.**
@@ -62,8 +60,8 @@ GetItFutureBuilder<Directory>(
 
 `get_it_future_builder` supports the initialization widget up to 3 dependencies. These widgets are respectively named:
 
- - `GetItFutureBuilder2`
- - `GetItFutureBuilder3`
+- `GetItFutureBuilder2`
+- `GetItFutureBuilder3`
 
 To initialize 2 dependencies on your widget tree, use `GetItFutureBuilder2`.
 
@@ -100,20 +98,22 @@ GetItFutureBuilder2<Directory, Directory>(
 
 The initialization of dependencies run concurrently.
 
+### Different Service Locator
+
+By default, `GetItFutureBuilder` uses the global service locator `GetIt.I` (or `GetIt.instance`) to resolve dependencies. If you have initialized a different service locator, you can pass it to `GetItFutureBuilder` as below:
+
+```dart
+GetItFutureBuilder(
+  // ...
+  locator: myLocator,
+  // ...
+)
+```
+
 [flutter_install_link]: https://docs.flutter.dev/get-started/install
-[github_actions_link]: https://docs.github.com/en/actions/learn-github-actions
 [license_badge]: https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat-square
 [license_link]: https://opensource.org/license/apache-2-0/
-[logo_black]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_black.png#gh-light-mode-only
-[logo_white]: https://raw.githubusercontent.com/VGVentures/very_good_brand/main/styles/README/vgv_logo_white.png#gh-dark-mode-only
-[mason_link]: https://github.com/felangel/mason
 [very_good_analysis_badge]: https://img.shields.io/badge/style-very_good_analysis-B22C89.svg?style=flat-square
 [very_good_analysis_link]: https://pub.dev/packages/very_good_analysis
-[very_good_cli_link]: https://pub.dev/packages/very_good_cli
-[very_good_coverage_link]: https://github.com/marketplace/actions/very-good-coverage
-[very_good_ventures_link]: https://verygood.ventures
-[very_good_ventures_link_light]: https://verygood.ventures#gh-light-mode-only
-[very_good_ventures_link_dark]: https://verygood.ventures#gh-dark-mode-only
-[very_good_workflows_link]: https://github.com/VeryGoodOpenSource/very_good_workflows
 [pub_badge]: https://img.shields.io/pub/v/get_it_future_builder?style=flat-square
 [pub_link]: https://pub.dev/packages/get_it_future_builder
