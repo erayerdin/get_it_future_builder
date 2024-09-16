@@ -27,15 +27,18 @@ class GetItFutureBuilder2<T1 extends Object, T2 extends Object>
     required Widget Function(BuildContext context, T1 instance1, T2 instance2)
         ready,
     super.key,
+    GetIt? locator,
     String? instanceName1,
     String? instanceName2,
   }) {
+    _locator = locator ?? GetIt.I;
     _instanceName1 = instanceName1;
     _instanceName2 = instanceName2;
     _loading = loading;
     _ready = ready;
   }
 
+  late GetIt _locator;
   late String? _instanceName1;
   late String? _instanceName2;
   late Widget Function(BuildContext context) _loading;
@@ -63,8 +66,8 @@ class GetItFutureBuilder2<T1 extends Object, T2 extends Object>
       future: () async {
         final dependencies = await Future.wait(
           [
-            GetIt.I.getAsync<T1>(instanceName: _instanceName1),
-            GetIt.I.getAsync<T2>(instanceName: _instanceName2),
+            _locator.getAsync<T1>(instanceName: _instanceName1),
+            _locator.getAsync<T2>(instanceName: _instanceName2),
           ],
         );
 

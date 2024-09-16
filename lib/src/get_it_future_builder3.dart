@@ -31,10 +31,12 @@ class GetItFutureBuilder3<T1 extends Object, T2 extends Object,
       T3 instance3,
     ) ready,
     super.key,
+    GetIt? locator,
     String? instanceName1,
     String? instanceName2,
     String? instanceName3,
   }) {
+    _locator = locator ?? GetIt.I;
     _instanceName1 = instanceName1;
     _instanceName2 = instanceName2;
     _instanceName3 = instanceName3;
@@ -42,6 +44,7 @@ class GetItFutureBuilder3<T1 extends Object, T2 extends Object,
     _ready = ready;
   }
 
+  late GetIt _locator;
   late String? _instanceName1;
   late String? _instanceName2;
   late String? _instanceName3;
@@ -76,9 +79,9 @@ class GetItFutureBuilder3<T1 extends Object, T2 extends Object,
       future: () async {
         final dependencies = await Future.wait(
           [
-            GetIt.I.getAsync<T1>(instanceName: _instanceName1),
-            GetIt.I.getAsync<T2>(instanceName: _instanceName2),
-            GetIt.I.getAsync<T3>(instanceName: _instanceName3),
+            _locator.getAsync<T1>(instanceName: _instanceName1),
+            _locator.getAsync<T2>(instanceName: _instanceName2),
+            _locator.getAsync<T3>(instanceName: _instanceName3),
           ],
         );
 
