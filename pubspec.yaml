@@ -1,6 +1,6 @@
 name: get_it_future_builder
 description: Wait for your async `get_it` dependencies to be ready in the presentation layer.
-version: 0.3.3
+version: 0.3.4
 homepage: https://github.com/erayerdin/get_it_future_builder
 repository: https://github.com/erayerdin/get_it_future_builder
 issue_tracker: https://github.com/erayerdin/get_it_future_builder/issues

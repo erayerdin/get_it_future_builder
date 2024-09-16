@@ -5,33 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog],
 and this project adheres to [Semantic Versioning].
 
+## [0.3.4] - 2024-09-16
+
+### Added
+
+- Added `locator` to all `GetItFutureBuilder`s to use a different service locator.
+
 ## [0.3.3] - 2023-07-06
 
 ### Changed
 
- - Fixed `hasData` to `hasError` to check error instead of data (dummy me)
+- Fixed `hasData` to `hasError` to check error instead of data (dummy me)
 
 ## [0.3.2] - 2023-07-06
 
 ### Changed
 
- - Separated `GetItFutureBuilder`, `GetItFutureBuilder2` and `GetItFutureBuilder3` into different subpackages
- - Throw error if an error occurs
+- Separated `GetItFutureBuilder`, `GetItFutureBuilder2` and `GetItFutureBuilder3` into different subpackages
+- Throw error if an error occurs
 
 ## [0.3.1] - 2023-06-11
 
- - Fixed a typo in `GetItFutureBuilder3`
+- Fixed a typo in `GetItFutureBuilder3`
 
 ## [0.3.0] - 2023-06-11
 
 ### Added
- - `GetItFutureBuilder3` for three dependencies
+
+- `GetItFutureBuilder3` for three dependencies
 
 ## [0.2.0] - 2023-06-09
 
 ### Added
 
- - `GetItFutureBuilder2` for two dependencies
+- `GetItFutureBuilder2` for two dependencies
 
 ## [0.1.0] - 2023-06-09
 
